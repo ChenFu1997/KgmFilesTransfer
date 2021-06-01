@@ -3,10 +3,7 @@ C# WPF.Net 编写，用于将.kgm文件转换为.mp3格式，实时显示转换�
 
 ### 效果图
 
-![Markdown](![Markdown](http://i2.tiimg.com/738513/0177fbcae372ac51.png))
+![Markdown](https://i.loli.net/2021/06/01/lLivmIOKu1z24hA.png)
 
-![Markdown](http://i2.tiimg.com/738513/1a99b74d5ac3c862.png)
+![Markdown](https://i.loli.net/2021/06/01/wy2iqcVmBJK7RPA.png)
 
-### 程序结构
-
-![Markdown](http://i2.tiimg.com/738513/76655372f28b71bf.png)
