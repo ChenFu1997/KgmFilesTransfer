@@ -1,0 +1,103 @@
+﻿<Window x:Class="KGM_TO_MP3.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:pu="clr-namespace:Panuon.UI.Silver;assembly=Panuon.UI.Silver"
+        xmlns:local="clr-namespace:KGM_TO_MP3"
+        mc:Ignorable="d"
+        x:Name="mywindow"
+        Title="音乐格式转换器" Height="150" Width="600" ResizeMode="CanMinimize">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="20"></RowDefinition>
+            <RowDefinition Height="*"></RowDefinition>
+            <RowDefinition Height="*"></RowDefinition>
+            <RowDefinition Height="20"></RowDefinition>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*"></ColumnDefinition>
+            <ColumnDefinition Width="60"></ColumnDefinition>
+            <ColumnDefinition Width="110"></ColumnDefinition>
+        </Grid.ColumnDefinitions>
+        
+        <Grid Margin="3 0 0 0"  Grid.Column="0" Grid.Row="0" Grid.ColumnSpan="2">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="60"></ColumnDefinition>
+                <ColumnDefinition Width="*"></ColumnDefinition>
+                <ColumnDefinition Width="60"></ColumnDefinition>
+            </Grid.ColumnDefinitions>
+            
+            <Grid Grid.Column="0" Background="LightCoral">
+                <Button Margin="0" Background="Transparent" Name="gy" FontSize="12" Content="关于" Height="20" Width="40"  Click="About_Click" />
+            </Grid>
+            
+            <Grid  Grid.Column="1" Margin="5 0 5 0" Background="LightCoral">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*"></ColumnDefinition>
+                    <ColumnDefinition Width="45"></ColumnDefinition>
+                </Grid.ColumnDefinitions>
+                <ProgressBar x:Name="pb_import" 
+                             Grid.Column="0"
+                             Margin="5 3 5 3"
+                             Background="LightCoral" 
+                             Foreground="White"                             
+                             Visibility="Visible"
+                             pu:ProgressBarHelper.AnimationDuration="0:0:0.5"/>
+                <TextBlock Margin="0" Name="bfb" 
+                           Grid.Column="1"   
+                           FontSize="12" 
+                           Foreground="White"
+                           Text="{Binding CurrentProgress , ElementName=mywindow, Mode=OneWay}" 
+                           HorizontalAlignment="Center" 
+                           VerticalAlignment="Center"/>
+            </Grid>
+            
+            <Grid Grid.Column="2" Background="LightCoral">
+                <TextBlock Name="SuccessAndFail" 
+                           Foreground="White"
+                           Grid.Column="1" FontSize="11"  
+                           FontFamily="{StaticResource FontAwesome}" 
+                           HorizontalAlignment="Center" 
+                           Text="{Binding SuccessFail, ElementName=mywindow, Mode=OneWay}" 
+                           VerticalAlignment="Center" />
+            </Grid>
+
+        </Grid>
+
+        <Grid Name="mainpart" Grid.Column="0" Grid.Row="1" Grid.RowSpan="2" Grid.ColumnSpan="2">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="*"></RowDefinition>
+                <RowDefinition Height="*"></RowDefinition>
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"></ColumnDefinition>
+                <ColumnDefinition Width="60"></ColumnDefinition>
+            </Grid.ColumnDefinitions>
+            <TextBox FontSize="12" VerticalContentAlignment="Center" Margin="3 3 5 3" Name="tb1" Grid.Row="0" Grid.Column="0" Background="LightGray" PreviewDragOver="tb_PreviewDragOver" PreviewDrop="tb1_PreviewDrop"></TextBox>
+            <TextBox FontSize="12" VerticalContentAlignment="Center" Margin="3 3 5 3" Name="tb2" Grid.Row="1" Grid.Column="0" Background="LightGray" PreviewDragOver="tb_PreviewDragOver" PreviewDrop="tb2_PreviewDrop"></TextBox>
+
+            <Button Margin="0 3 0 3" Name="bt0"  Grid.Row="0" Grid.Column="1" FontFamily="黑体" Background="DarkCyan" FontSize="12" Content="原始路径" Click ="Bt0_Click"></Button>
+            <Button Margin="0 3 0 3" Name="bt1"  Grid.Row="1" Grid.Column="1" FontFamily="黑体" Background="DarkCyan" FontSize="12" Content="输出路径" Click="Bt1_Click"></Button>
+        </Grid>
+
+        <Button Margin="5 0 3 3" Name="ts0" Grid.Column="2" Grid.Row="0" Grid.RowSpan="4" Click="Ts0_Click">
+            <Button.Content>
+                <Image Name="img" Source="1.jpg" Stretch="UniformToFill">
+                    <Image.Style>
+                        <Style TargetType="Image">
+                            <Style.Triggers>
+                                <Trigger Property="IsMouseOver" Value="True">
+                                    <Setter Property="Opacity" Value="0.8"/>
+                                </Trigger>
+                            </Style.Triggers>
+                        </Style>
+                    </Image.Style>
+                </Image>
+            </Button.Content>
+        </Button>
+        <Grid Margin="3 0 0 3"  Grid.Column="0" Grid.Row="3" Grid.ColumnSpan="2" Background="LightCoral">
+            <TextBlock FontSize="12" Text="岁月还长·要心地善良"  FontFamily="黑体" HorizontalAlignment="Center" VerticalAlignment="Center" />
+        </Grid>
+    </Grid>
+</Window>
